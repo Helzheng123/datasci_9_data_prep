@@ -13,7 +13,7 @@ df.columns = df.columns.str.lower().str.replace(' ', '_').str.replace('(', '').s
 df.columns
 
 ## get data types
-df.dtypes # nice combination of numbers and strings/objects 
+df.dtypes
 len(df)
 
 # keep columns 
