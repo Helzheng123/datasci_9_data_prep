@@ -6,6 +6,9 @@ import pandas as pd
 # data download link: 
 datalink = 'https://data.cdc.gov/api/views/bi63-dtpu/rows.csv?accessType=DOWNLOAD'
 
+# This is a dataset that shows the age-adjusted death rates for the 10 leading causes of death in the 50 states and District of Columbia (from 1999-2017).
+# Age adjusted death rates (per 100,000 population) are based on the US standard population in 2000.
+
 df = pd.read_csv(datalink)
 df.size
 df.sample(5)
