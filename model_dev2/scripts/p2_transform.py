@@ -46,7 +46,7 @@ enc = OrdinalEncoder()
 enc.fit(df[['cause_name']])
 df['cause_name'] = enc.transform(df[['cause_name']])
 
-## create dataframe with mapping for race
+## create dataframe with mapping for cause_name
 df_mapping_cause_name = pd.DataFrame(enc.categories_[0], columns=['cause_name'])
 df_mapping_cause_name['cause_name_ordinal'] = df_mapping_cause_name.index
 df_mapping_cause_name
@@ -54,19 +54,18 @@ df_mapping_cause_name
 ## save mapping to csv
 df_mapping_cause_name.to_csv('model_dev2/data/processed/mapping_cause_name.csv', index=False)
 
-## perform ordinal encoding on cause_name
+## perform ordinal encoding on state
 enc = OrdinalEncoder()
-enc.fit(df[['cause_name']])
-df['cause_name'] = enc.transform(df[['cause_name']])
+enc.fit(df[['state']])
+df['state'] = enc.transform(df[['state']])
 
-## create dataframe with mapping for race
-df_mapping_cause_name = pd.DataFrame(enc.categories_[0], columns=['cause_name'])
-df_mapping_cause_name['cause_name_ordinal'] = df_mapping_cause_name.index
-df_mapping_cause_name
+## create dataframe with mapping for state
+df_mapping_state = pd.DataFrame(enc.categories_[0], columns=['state'])
+df_mapping_state['state_ordinal'] = df_mapping_state.index
+df_mapping_state
 
 ## save mapping to csv
-df_mapping_cause_name.to_csv('model_dev2/data/processed/mapping_cause_name.csv', index=False)
-
+df_mapping_state.to_csv('model_dev2/data/processed/mapping_state.csv', index=False)
 
 ## Save the whole thing
-df.to_csv('model_dev1/data/processed/processed_death_life.csv', index=False)
+df.to_csv('model_dev2/data/processed/processed_leading_deaths.csv', index=False)
